@@ -83,7 +83,7 @@ JSON
 
 ### 📂 Project Structure
 Plaintext
-
+```Bash
 .
 ├── app
 │   ├── crud.py        # Database CRUD operations
@@ -95,3 +95,5 @@ Plaintext
 ├── Dockerfile         # Docker image build instructions
 ├── requirements.txt   # Python dependencies
 └── README.md
+
+```
