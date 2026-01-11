@@ -27,11 +27,12 @@ Make sure you have [Docker](https://www.docker.com/) and [Docker Compose](https:
 ```bash
 git clone [https://github.com/Froggy1213/url-shortener-fastapi.git](https://github.com/Froggy1213/url-shortener-fastapi.git)
 cd url-shortener-fastapi
+```
 
-2. Configure Environment
-
+### 2. Configure Environment
+```bash
 Create a .env file in the root directory:
-Bash
+
 
 touch .env
 
@@ -39,14 +40,15 @@ Add the following configuration to the .env file:
 Ini, TOML
 
 DATABASE_URL=postgresql://postgres:postgres@db:5432/shortener_db
+```
 
-3. Run with Docker
+### 3. Run with Docker
 
 Build and start the containers:
-Bash
 
+```bash
 docker compose up --build
-
+```
 The server will start at http://localhost:8000.
 📖 API Documentation
 
@@ -56,10 +58,9 @@ FastAPI provides automatic interactive documentation. Once the app is running, o
 
     ReDoc: http://127.0.0.1:8000/redoc
 
-Usage Example
+### Usage Example
 
-1. Create a short link:
-Bash
+### 1. Create a short link:
 
 curl -X 'POST' \
   '[http://127.0.0.1:8000/url](http://127.0.0.1:8000/url)' \
@@ -77,8 +78,10 @@ JSON
   "is_active": true
 }
 
-2. Access the short link: Open http://127.0.0.1:8000/A1b2C in your browser, and you will be redirected to Google.
-📂 Project Structure
+###  2. Access the short link: Open http://127.0.0.1:8000/A1b2C in your browser, and you will be redirected to Google.
+
+
+### 📂 Project Structure
 Plaintext
 
 .
