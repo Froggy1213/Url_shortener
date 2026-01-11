@@ -1,0 +1,21 @@
+# Виртуальное окружение
+venv/
+.venv/
+
+# Переменные окружения (СЕКРЕТЫ!)
+.env
+
+# Байт-код Python и кэш
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Данные базы данных (если вдруг папка создалась локально)
+postgres_data/
+
+# Файлы IDE (VS Code, Pycharm)
+.idea/
+.vscode/
+
+# MacOS мусор (на всякий случай)
+.DS_Store

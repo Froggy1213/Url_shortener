@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  # Сервис Базы Данных
+  db:
+    image: postgres:15-alpine
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=shortener_db
+    ports:
+      - "5432:5432"  # (Опционально) Чтобы можно было подключиться к БД локально через DBeaver/PgAdmin
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  
+  web:
+    build: .
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    ports:
+      - "8000:8000"
+    environment:
+      # Важно: хост базы данных теперь не "localhost", а имя сервиса "db"
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/shortener_db
+    depends_on:
+      - db
+    volumes:
+      # Монтируем текущую папку внутрь контейнера.
+      # Это позволит менять код локально, и сервер в Docker сам перезагрузится.
+      - .:/app:z
+
+volumes:
+  postgres_data:
